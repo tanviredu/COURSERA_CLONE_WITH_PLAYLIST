@@ -63,7 +63,7 @@ def user_profile(request):
             form.save()
             messages.success(request,'Changed Saved')
             ## this is temporary
-            return HttpResponse("Profile Updated")
+            return HttpResponseRedirect(reverse('App_Shop:home'))
     
     return render(request,"App_Login/change_profile.html",{'form':form})
     
