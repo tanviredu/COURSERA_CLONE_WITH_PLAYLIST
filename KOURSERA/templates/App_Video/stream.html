@@ -1,0 +1,33 @@
+{% extends 'product_detail_nav.html'%}
+{% block cart_block %}
+
+    <style>
+        .myvideo{
+            margin:80px;
+        }
+    </style>
+
+
+<div class="myvideo">  
+    <video
+        id="my-player"
+        width="760px"
+        class="video-js"
+        controls
+        preload="auto"
+        poster="/media/{{video.user.profile.profile_picture}}"
+        data-setup='{}'>
+      <source src="/media/{{video.video_content}}" type="video/mp4"></source>
+      <source src="/media/{{video.video_content}}" type="video/webm"></source>
+      <source src="/media/{{video.video_content}}" type="video/ogg"></source>
+      <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a
+        web browser that
+        <a href="https://videojs.com/html5-video-support/" target="_blank">
+          supports HTML5 video
+        </a>
+      </p>
+    </video>
+</div>
+
+{% endblock %}

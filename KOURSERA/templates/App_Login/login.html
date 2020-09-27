@@ -1,0 +1,43 @@
+{% extends 'base.html' %} 
+{% load crispy_forms_tags %}
+
+{% block login_block %}
+
+    <style>
+        .login{
+            margin-left:150px;
+            margin-right:150px;
+            padding:10px;
+            border-left: 5px solid green;
+        }
+
+    </style>
+
+<section class="faqs-area padding-100-50" id="login">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                    <div class="area-title text-center wow fadeIn">
+                        <h2>Login</h2>
+                    </div>
+                </div>
+            </div>
+            <div>
+            <h4>    
+            <div class="login">
+                <div class="blog-details padding30">
+                    <div class="area-title text-center wow fadeIn">
+                        <form method="POST">
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            <input type="submit" class="btn btn-success btn-lg" value="Login">
+                        </form>
+                    </div>
+                <div>
+            </div>
+            </h4>
+        </div>
+    </div>
+</section>           
+{% endblock %}
+

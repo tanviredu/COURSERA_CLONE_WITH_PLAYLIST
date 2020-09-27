@@ -1,0 +1,36 @@
+{% extends 'product_detail_nav.html' %}
+{% block cart_block %}
+<style>
+    .myprod{
+        margin:50px;
+        padding:5px;
+    }
+</style>
+<div class="myprod">
+<div class="container my-5">
+  <h2 class="my-5">All Courses</h2>
+  <div class="row">
+    {% for product in courses %}
+    <div class="col-md-6 col-sm-12 col-lg-3">
+      <figure class="card card-product">
+        <div class="img-wrap">
+          <img src="/media/{{product.mainimage}}" style="width:100%; height:300px;">
+        </div>
+        <figcaption class="info-wrap">
+          <h6 class="title"><a href="{% url 'App_Shop:product_detail' pk=product.pk %}">{{product.name}}</a></h6>
+          <div class="action-wrap">
+            <div class="price-wrap h5">
+              <span class="price-new">&#2547; {{product.price|floatformat:2}}</span>
+              <span class="price-old"><strike>&#2547; {{product.old_price|floatformat:2}}</strike></span>
+            </div>
+          </div>
+        </figcaption>
+      </figure>
+    </div>
+
+    {% endfor %}
+  </div>
+</div>
+</div>
+
+{% endblock %}

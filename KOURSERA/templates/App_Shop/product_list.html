@@ -1,0 +1,30 @@
+{% extends 'navbar.html' %} 
+
+
+{% block product_block %}
+<style>
+    .pr{
+        padding:20px;
+    }
+    #image{
+        height:250px;
+    }
+</style>
+{% for product in object_list %}
+
+<div class="pr">
+    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
+        <div class="single-course mb20">
+                <img src="/media/{{product.mainimage}}" id="image" alt="">
+                    <div class="course-details padding30">
+                        <h3 class="font18">{{product.name}}</h3>
+                    <strong><p>Author : {{product.author}}</p> </strong>
+                <p class="mt30"><a href="{% url 'App_Shop:product_detail' pk=product.pk %}" class="enroll-button">Course Detail</a> <span class="course-price">&#2547;{{product.price}}</span> &nbsp; <strike><p class="course-price">&#2547;{{product.old_price}}</span></strike></p>
+                
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}
